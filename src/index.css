@@ -1,0 +1,49 @@
+@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&family=Inter:wght@400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
+  }
+
+  body {
+    @apply font-mono bg-term-bg-l text-term-text-l dark:bg-term-bg dark:text-term-text;
+    @apply transition-colors duration-200;
+  }
+
+  ::selection {
+    @apply bg-term-green-l/30 dark:bg-term-green/30;
+  }
+
+  /* Custom scrollbar */
+  ::-webkit-scrollbar {
+    width: 10px;
+    height: 10px;
+  }
+  ::-webkit-scrollbar-track {
+    @apply bg-term-bg-l dark:bg-term-bg;
+  }
+  ::-webkit-scrollbar-thumb {
+    @apply bg-term-border-l dark:bg-term-border rounded;
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    @apply bg-term-muted-l dark:bg-term-muted;
+  }
+}
+
+@layer components {
+  .prompt::before {
+    content: '$ ';
+    @apply text-term-green-l dark:text-term-green;
+  }
+  .prompt-user::before {
+    content: 'ashish@portfolio:~$ ';
+    @apply text-term-green-l dark:text-term-green;
+  }
+}
